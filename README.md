@@ -45,9 +45,9 @@ private int REQUEST_CODE = 11;
             @Override
             public void onSuccess(AppUpdateInfo result) {
                 if (result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                        & result.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)){
+                        & result.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)){
                     try {
-                        appUpdateManager.startUpdateFlowForResult(result,AppUpdateType.IMMEDIATE,MainActivity.this,REQUEST_CODE);
+                        appUpdateManager.startUpdateFlowForResult(result,AppUpdateType.FLEXIBLE,MainActivity.this,REQUEST_CODE);
                     } catch (IntentSender.SendIntentException e) {
                         throw new RuntimeException(e);
                     }
